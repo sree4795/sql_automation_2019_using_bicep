@@ -1,0 +1,20 @@
+name: sql-automation
+
+on: [push, pull_request]
+
+jobs:
+  build:
+
+    runs-on: [self-hosted]
+
+    steps:
+    - uses: actions/checkout@v1
+  #  - name: Installing  sql server
+  #    run: .\ssms_install.ps1 
+    - name: Installing  sql server using config file
+      run: .\sql_install.ps1     
+  #  - name: Installing  sql server
+  #   run: .\sqlexpress.psm1 
+  #  - name: Installing  sql express
+  #    run: .\usage.ps1      
+      shell: powershell
