@@ -1,11 +1,10 @@
 function Install-SQLServerExpress2019AndManagementStudio() {
-    if (-not (Test-Path "C:\Program Files\Microsoft SQL Server\sql-server-2019")) {
-        if (-not (Test-Path "C:\tempsql1\SQLServer2019-x64-ENU-Dev.iso")) {
+    if (-not (Test-Path "C:\Program Files\Microsoft SQL Server\MSSQL15.SQLEXPRESS")) {
+        if (-not (Test-Path "C:\tempsql1\SQLEXPR.exe")) {
             Write-Output "Downloading SQL Server 2019 Express: this may take a while`r`n"
             mkdir c:\tempsql1 -Force
             # (New-Object Net.WebClient).DownloadFile('http://download.microsoft.com/download/E/A/E/EAE6F7FC-767A-4038-A954-49B8B05D04EB/ExpressAndTools%2064BIT/SQLEXPRWT_x64_ENU.exe','C:\tempsql\SQLEXPRWT_x64_ENU.exe')
-            # (New-Object Net.WebClient).DownloadFile('https://download.microsoft.com/download/8/4/c/84c6c430-e0f5-476d-bf43-eaaa222a72e0/SQLEXPR_x64_ENU.exe','C:\tempsql1\SQLEXPR.exe')
-              (New-Object Net.WebClient).DownloadFile('https://download.microsoft.com/download/7/c/1/7c14e92e-bdcb-4f89-b7cf-93543e7112d1/SQLServer2019-x64-ENU-Dev.iso','C:\tempsql1\SQLServer2019-x64-ENU-Dev.iso')
+             (New-Object Net.WebClient).DownloadFile('https://download.microsoft.com/download/8/4/c/84c6c430-e0f5-476d-bf43-eaaa222a72e0/SQLEXPR_x64_ENU.exe','C:\tempsql1\SQLEXPR.exe')
         }
         Write-Output "Unpacking SQL Server 2019 Express`r`n"
         C:\tempsql1\SQLEXPR.exe /x:"c:\tempsql1\SQLEXPR" /u | Out-Null
